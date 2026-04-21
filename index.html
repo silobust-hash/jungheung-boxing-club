@@ -48,7 +48,7 @@ tailwind.config = {
 }
 </script>
 <style>
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
   body { font-family: 'Noto Sans KR', sans-serif; background: #0a0a0a; color: #f4f4f4; }
   .headline { font-family: 'Black Han Sans', sans-serif; letter-spacing: 1px; }
   .num { font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; }
@@ -86,7 +86,11 @@ tailwind.config = {
   .chip { border: 1px solid rgba(245,197,24,0.4); color: #f5c518; padding: 4px 12px; border-radius: 999px; font-size: 12px; letter-spacing: 2px; }
   [data-reveal] { opacity: 0; transform: translateY(30px); transition: all .8s cubic-bezier(.22,1,.36,1); }
   [data-reveal].is-in { opacity: 1; transform: translateY(0); }
-  .nav-scrolled { backdrop-filter: blur(12px); background: rgba(10,10,10,0.85); border-bottom: 1px solid rgba(225,6,0,0.2); }
+  .nav-scrolled,
+  #nav.menu-open { background: #0a0a0a; border-bottom: 1px solid rgba(225,6,0,0.25); box-shadow: 0 6px 24px -12px rgba(0,0,0,0.8); }
+  @media (min-width: 768px) {
+    .nav-scrolled { background: rgba(10,10,10,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  }
   .bag { transform-origin: top center; animation: bagSway 3.2s ease-in-out infinite; }
   @keyframes bagSway { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
 
@@ -123,14 +127,14 @@ tailwind.config = {
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
   </div>
-  <div id="mobileMenu" class="hidden md:hidden bg-ring-dark border-t border-ring-red/30">
-    <ul class="flex flex-col p-6 gap-4 text-sm">
-      <li><a href="#about" class="block py-2">관장 소개</a></li>
-      <li><a href="#programs" class="block py-2">프로그램</a></li>
-      <li><a href="#facility" class="block py-2">시설</a></li>
-      <li><a href="#members" class="block py-2">회원</a></li>
-      <li><a href="#contact" class="block py-2">오시는 길</a></li>
-      <li><a href="tel:062-521-9848" class="btn-red px-5 py-3 text-center font-bold rounded-sm">📞 062-521-9848</a></li>
+  <div id="mobileMenu" class="hidden md:hidden bg-ring-black border-t border-ring-red/30 min-h-[calc(100vh-72px)]">
+    <ul class="flex flex-col p-6 gap-2 text-base">
+      <li><a href="#about" class="block py-3 border-b border-white/5">관장 소개</a></li>
+      <li><a href="#programs" class="block py-3 border-b border-white/5">프로그램</a></li>
+      <li><a href="#facility" class="block py-3 border-b border-white/5">시설</a></li>
+      <li><a href="#members" class="block py-3 border-b border-white/5">회원</a></li>
+      <li><a href="#contact" class="block py-3 border-b border-white/5">오시는 길</a></li>
+      <li class="mt-4"><a href="tel:062-521-9848" class="btn-red block px-5 py-3 text-center font-bold rounded-sm">📞 062-521-9848</a></li>
     </ul>
   </div>
 </nav>
@@ -694,9 +698,16 @@ tailwind.config = {
     if (window.scrollY > 40) nav.classList.add('nav-scrolled');
     else nav.classList.remove('nav-scrolled');
   });
+  const mobileMenu = document.getElementById('mobileMenu');
+  const navEl = document.getElementById('nav');
+  function setMenuOpen(open) {
+    mobileMenu.classList.toggle('hidden', !open);
+    navEl.classList.toggle('menu-open', open);
+  }
   document.getElementById('menuBtn').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.toggle('hidden');
+    setMenuOpen(mobileMenu.classList.contains('hidden'));
   });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenuOpen(false)));
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
   }, { threshold: 0.15 });
