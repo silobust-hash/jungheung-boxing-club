@@ -142,7 +142,7 @@ tailwind.config = {
   </div>
   <div class="absolute top-0 left-0 right-0 h-3 ropes opacity-70"></div>
   <div class="absolute bottom-0 left-0 right-0 h-3 ropes opacity-70"></div>
-  <div class="absolute top-28 right-8 md:right-16 num text-[120px] md:text-[200px] text-ring-red/10 leading-none select-none pointer-events-none">01</div>
+  <div class="absolute top-28 right-8 md:right-16 num text-[120px] md:text-[200px] text-ring-red/10 leading-none select-none pointer-events-none hidden md:block">01</div>
 
   <div class="relative max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-10 items-center py-24">
     <div>
@@ -163,18 +163,18 @@ tailwind.config = {
         <a href="#programs" class="px-8 py-4 border-2 border-white/20 hover:border-ring-gold hover:text-ring-gold font-bold tracking-wider rounded-sm transition">프로그램 보기</a>
       </div>
 
-      <div class="mt-14 grid grid-cols-3 gap-6 max-w-xl">
-        <div>
-          <div class="num text-3xl md:text-4xl text-ring-red">관장</div>
-          <div class="text-xs text-gray-400 mt-1 tracking-wider">직접 지도</div>
+      <div class="mt-10 md:mt-14 grid grid-cols-3 gap-3 sm:gap-6 max-w-xl">
+        <div class="min-w-0">
+          <div class="num text-2xl sm:text-3xl md:text-4xl text-ring-red">관장</div>
+          <div class="text-[10px] sm:text-xs text-gray-400 mt-1 tracking-wider">직접 지도</div>
         </div>
-        <div>
-          <div class="num text-3xl md:text-4xl text-ring-gold">초·중·대·직장</div>
-          <div class="text-xs text-gray-400 mt-1 tracking-wider">다양한 연령</div>
+        <div class="min-w-0">
+          <div class="num text-2xl sm:text-3xl md:text-4xl text-ring-gold">전 연령</div>
+          <div class="text-[10px] sm:text-xs text-gray-400 mt-1 tracking-wider">초·중·대·직장</div>
         </div>
-        <div>
-          <div class="num text-3xl md:text-4xl text-white">남녀</div>
-          <div class="text-xs text-gray-400 mt-1 tracking-wider">샤워실 완비</div>
+        <div class="min-w-0">
+          <div class="num text-2xl sm:text-3xl md:text-4xl text-white">남녀</div>
+          <div class="text-[10px] sm:text-xs text-gray-400 mt-1 tracking-wider">샤워실 완비</div>
         </div>
       </div>
     </div>
@@ -213,7 +213,7 @@ tailwind.config = {
     </div>
   </div>
 
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70">
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 opacity-70">
     <span class="num text-xs tracking-widest">SCROLL</span>
     <div class="w-[1px] h-10 bg-white/40 animate-pulse"></div>
   </div>
@@ -221,7 +221,7 @@ tailwind.config = {
 
 <!-- ============== TICKER ============== -->
 <div class="bg-ring-red py-3 overflow-hidden border-y-2 border-ring-gold">
-  <div class="flex gap-12 animate-punch whitespace-nowrap headline text-2xl">
+  <div class="flex gap-6 md:gap-12 animate-punch whitespace-nowrap headline text-base sm:text-xl md:text-2xl">
     <span>✊ JAB · STRAIGHT · HOOK · UPPERCUT</span>
     <span class="text-ring-gold">★</span>
     <span>초등학생 · 중학생 · 대학생 · 직장인 모두 환영</span>
@@ -232,7 +232,7 @@ tailwind.config = {
 </div>
 
 <!-- ============== ABOUT ============== -->
-<section id="about" class="py-24 md:py-32 bg-ring-black relative">
+<section id="about" class="py-24 md:py-32 bg-ring-black relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
     <div data-reveal>
       <div class="chip inline-block mb-6 num">02 · COACH</div>
