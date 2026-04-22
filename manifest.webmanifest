@@ -1,0 +1,36 @@
+{
+  "name": "광주복싱 중흥복싱클럽",
+  "short_name": "중흥복싱",
+  "description": "광주 북구 정통 복싱 체육관. 홍관장 직접 지도.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#e10600",
+  "orientation": "portrait-primary",
+  "lang": "ko-KR",
+  "dir": "ltr",
+  "categories": ["sports", "health", "fitness", "lifestyle"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "전화 상담",
+      "short_name": "전화",
+      "description": "체험 상담 무료",
+      "url": "tel:062-521-9848"
+    },
+    {
+      "name": "오시는 길",
+      "short_name": "위치",
+      "description": "광주 북구 서방로 34, 3층",
+      "url": "/#contact"
+    }
+  ]
+}

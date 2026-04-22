@@ -1,15 +1,22 @@
 # 중흥복싱클럽 — AI Crawler & Search Engine Policy
-# https://광주복싱.com
+# Primary: https://광주복싱.com (xn--hc0bj51alpe00g.com)
+# Brand:   https://중흥복싱.com (xn--2e0b040aviiyra.com)
 
 User-agent: *
 Allow: /
-Sitemap: https://xn--2e0b040aviiyra.com/sitemap.xml
+Sitemap: https://xn--hc0bj51alpe00g.com/sitemap.xml
 
 # ── Google ──
 User-agent: Googlebot
 Allow: /
 
+User-agent: Googlebot-Image
+Allow: /
+
 User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot-News
 Allow: /
 
 # ── AI Search Engines ──
@@ -28,7 +35,13 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
 Allow: /
 
 User-agent: Bytespider
@@ -37,10 +50,60 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
 # ── Naver ──
 User-agent: Yeti
+Allow: /
+
+User-agent: NaverBot
+Allow: /
+
+# ── Daum / Kakao ──
+User-agent: Daumoa
 Allow: /
 
 # ── Bing ──
 User-agent: Bingbot
 Allow: /
+
+User-agent: msnbot
+Allow: /
+
+# ── Crawl-delay (optional, for heavy bots) ──
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
