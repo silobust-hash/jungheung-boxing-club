@@ -79,8 +79,9 @@
     }
 
     .headline {
-      font-family: 'Black Han Sans', sans-serif;
-      letter-spacing: 1px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 900;
+      letter-spacing: -0.5px;
     }
 
     .num {
@@ -229,9 +230,8 @@
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="#home" class="flex items-center gap-3 group">
         <div
-          class="w-10 h-10 bg-ring-red flex items-center justify-center rounded-sm rotate-45 group-hover:rotate-90 transition-transform duration-500">
-          <span
-            class="-rotate-45 group-hover:-rotate-90 transition-transform duration-500 headline text-white text-xl">중</span>
+          class="w-10 h-10 flex items-center justify-center transition-transform duration-500 overflow-hidden rounded-sm hover:scale-110">
+          <img src="/images/logo.png" alt="중흥복싱클럽 로고" class="w-full h-full object-cover" />
         </div>
         <div>
           <div class="headline text-xl tracking-wider">중흥복싱클럽</div>
@@ -325,11 +325,9 @@
         <!-- Faux signboard -->
         <div class="relative signboard p-8 rounded-sm shadow-2xl">
           <div class="flex items-center gap-4 mb-4">
-            <svg viewBox="0 0 60 60" class="w-14 h-14 flex-shrink-0">
-              <ellipse cx="20" cy="28" rx="10" ry="15" fill="#e10600" stroke="#0a0a0a" stroke-width="2" />
-              <rect x="12" y="15" width="8" height="6" fill="#0a0a0a" />
-              <path d="M25 30 Q40 25 48 38" stroke="#f5c518" stroke-width="2" fill="none" />
-            </svg>
+            <div class="w-14 h-14 rounded-full overflow-hidden flex-shrink-0 border-2 border-ring-gold/30 bg-black">
+              <img src="/images/logo.png" alt="중흥복싱클럽 로고" class="w-full h-full object-cover">
+            </div>
             <div>
               <div class="headline text-5xl lg:text-6xl text-white leading-none">중흥<span
                   class="text-ring-gold">복싱</span>클럽</div>
