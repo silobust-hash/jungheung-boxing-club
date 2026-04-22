@@ -100,6 +100,12 @@ tailwind.config = {
   .chip { border: 1px solid rgba(245,197,24,0.4); color: #f5c518; padding: 4px 12px; border-radius: 999px; font-size: 12px; letter-spacing: 2px; }
   [data-reveal] { opacity: 0; transform: translateY(30px); transition: all .8s cubic-bezier(.22,1,.36,1); }
   [data-reveal].is-in { opacity: 1; transform: translateY(0); }
+  /* FAQ accordion */
+  .faq-item > summary { list-style: none; cursor: pointer; }
+  .faq-item > summary::-webkit-details-marker { display: none; }
+  .faq-item[open] > summary .faq-icon { transform: rotate(45deg); }
+  .faq-icon { transition: transform .25s ease; }
+  .faq-item[open] { border-color: rgba(225,6,0,0.5); }
   .nav-scrolled,
   #nav.menu-open { background: #0a0a0a; border-bottom: 1px solid rgba(225,6,0,0.25); box-shadow: 0 6px 24px -12px rgba(0,0,0,0.8); }
   @media (min-width: 768px) {
@@ -107,11 +113,6 @@ tailwind.config = {
   }
   .bag { transform-origin: top center; animation: bagSway 3.2s ease-in-out infinite; }
   @keyframes bagSway { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
-
-  /* Photo slot: real image on top, SVG fallback behind. img auto-removes on 404 */
-  .photo-slot { overflow: hidden; }
-  .photo-slot-fallback { z-index: 0; }
-  .photo-slot-img { z-index: 1; }
 
   /* Signboard style (blue/gold like real gym) */
   .signboard {
@@ -134,12 +135,11 @@ tailwind.config = {
         <div class="text-[10px] text-gray-400 num">JUNGHEUNG BOXING CLUB</div>
       </div>
     </a>
-    <ul class="hidden md:flex items-center gap-7 lg:gap-8 text-sm">
+    <ul class="hidden md:flex items-center gap-8 text-sm">
       <li><a href="#about" class="hover:text-ring-red transition">관장 소개</a></li>
       <li><a href="#programs" class="hover:text-ring-red transition">프로그램</a></li>
       <li><a href="#facility" class="hover:text-ring-red transition">시설</a></li>
       <li><a href="#members" class="hover:text-ring-red transition">회원</a></li>
-      <li><a href="#gallery" class="hover:text-ring-red transition">갤러리</a></li>
       <li><a href="#contact" class="hover:text-ring-red transition">오시는 길</a></li>
     </ul>
     <a href="tel:062-521-9848" class="btn-red px-5 py-2.5 text-sm font-bold tracking-wider rounded-sm hidden md:inline-block">📞 062-521-9848</a>
@@ -153,7 +153,6 @@ tailwind.config = {
       <li><a href="#programs" class="block py-3 border-b border-white/5">프로그램</a></li>
       <li><a href="#facility" class="block py-3 border-b border-white/5">시설</a></li>
       <li><a href="#members" class="block py-3 border-b border-white/5">회원</a></li>
-      <li><a href="#gallery" class="block py-3 border-b border-white/5">갤러리</a></li>
       <li><a href="#contact" class="block py-3 border-b border-white/5">오시는 길</a></li>
       <li class="mt-4"><a href="tel:062-521-9848" class="btn-red block px-5 py-3 text-center font-bold rounded-sm">📞 062-521-9848</a></li>
     </ul>
@@ -287,8 +286,8 @@ tailwind.config = {
     <div data-reveal class="relative">
       <div class="absolute -inset-4 bg-ring-red/20 blur-3xl"></div>
       <div class="relative card p-2 rounded-sm">
-        <div class="photo-slot aspect-[3/4] bg-gradient-to-br from-ring-dark to-black relative overflow-hidden rounded-sm">
-          <svg viewBox="0 0 300 400" class="photo-slot-fallback absolute inset-0 w-2/3 h-2/3 m-auto opacity-80">
+        <div class="aspect-[3/4] bg-gradient-to-br from-ring-dark to-black relative overflow-hidden rounded-sm flex items-center justify-center">
+          <svg viewBox="0 0 300 400" class="w-2/3 h-2/3 opacity-80" aria-hidden="true">
             <defs>
               <linearGradient id="sil" x1="0" x2="0" y1="0" y2="1">
                 <stop offset="0" stop-color="#e10600"/>
@@ -300,9 +299,8 @@ tailwind.config = {
             <path d="M80 200 L40 260 L55 275 L95 220 Z" fill="url(#sil)"/>
             <path d="M220 200 L260 260 L245 275 L205 220 Z" fill="url(#sil)"/>
           </svg>
-          <img src="images/coach-portrait.jpg" alt="중흥복싱클럽 홍관장 프로필" width="1200" height="1600" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none"></div>
-          <div class="absolute bottom-6 left-6 right-6 z-10">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6">
             <div class="num text-ring-gold text-xs tracking-widest mb-2">HEAD COACH · 관장</div>
             <div class="headline text-3xl">홍관장</div>
             <div class="text-sm text-gray-300 mt-1">중흥복싱클럽 관장</div>
@@ -382,7 +380,7 @@ tailwind.config = {
         <ul class="text-xs text-gray-500 space-y-1">
           <li>▸ 퇴근 후 운동 가능</li>
           <li>▸ 스트레스 해소 · 체형 관리</li>
-          <li>▸ 웨이트 병행 가능</li>
+          <li>▸ 자신감 · 컨디션 향상</li>
         </ul>
       </div>
     </div>
@@ -435,14 +433,14 @@ tailwind.config = {
       <h2 class="headline text-4xl md:text-6xl max-w-3xl">
         태극기 아래, <span class="text-ring-red">진짜 복싱의 공간</span>
       </h2>
-      <p class="text-gray-400 mt-4">정통 링, 샌드백, 웨이트, 남녀 샤워실까지 — 복싱에 필요한 모든 것</p>
+      <p class="text-gray-400 mt-4">정통 링, 샌드백·미트 존, 남녀 샤워실까지 — 복싱에 필요한 모든 것</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-2 gap-6">
       <!-- Ring -->
       <div class="card p-0 rounded-sm overflow-hidden group" data-reveal>
-        <div class="photo-slot aspect-[4/3] bg-gradient-to-br from-ring-crimson/40 to-black relative">
-          <svg viewBox="0 0 200 150" class="photo-slot-fallback absolute inset-0 w-2/3 m-auto" aria-hidden="true">
+        <div class="aspect-[4/3] bg-gradient-to-br from-ring-crimson/40 to-black flex items-center justify-center relative">
+          <svg viewBox="0 0 200 150" class="w-2/3" aria-hidden="true">
             <circle cx="100" cy="25" r="10" fill="#cd2e3a"/>
             <path d="M100 15 A10 10 0 0 1 100 35 A5 5 0 0 1 100 25 A5 5 0 0 0 100 15Z" fill="#0047a0"/>
             <rect x="30" y="50" width="140" height="80" fill="none" stroke="#e10600" stroke-width="3"/>
@@ -452,7 +450,6 @@ tailwind.config = {
             <circle cx="30" cy="50" r="5" fill="#f5c518"/><circle cx="170" cy="50" r="5" fill="#f5c518"/>
             <circle cx="30" cy="130" r="5" fill="#f5c518"/><circle cx="170" cy="130" r="5" fill="#f5c518"/>
           </svg>
-          <img src="images/facility-ring.jpg" alt="중흥복싱클럽 정통 복싱 링" width="1600" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
         </div>
         <div class="p-6">
           <div class="num text-ring-gold text-xs mb-2">RING</div>
@@ -463,8 +460,8 @@ tailwind.config = {
 
       <!-- Bag -->
       <div class="card p-0 rounded-sm overflow-hidden group" data-reveal>
-        <div class="photo-slot aspect-[4/3] bg-gradient-to-br from-ring-crimson/40 to-black relative">
-          <svg viewBox="0 0 200 150" class="photo-slot-fallback absolute inset-0 w-1/2 m-auto" aria-hidden="true">
+        <div class="aspect-[4/3] bg-gradient-to-br from-ring-crimson/40 to-black flex items-center justify-center">
+          <svg viewBox="0 0 200 150" class="w-1/2" aria-hidden="true">
             <defs>
               <linearGradient id="bagGrad" x1="0" x2="1" y1="0" y2="0">
                 <stop offset="0" stop-color="#111"/>
@@ -477,35 +474,11 @@ tailwind.config = {
             <rect x="80" y="55" width="40" height="70" fill="url(#bagGrad)" stroke="#0a0a0a"/>
             <ellipse cx="100" cy="125" rx="20" ry="6" fill="#000" opacity="0.5"/>
           </svg>
-          <img src="images/facility-bag.jpg" alt="중흥복싱클럽 샌드백·미트 트레이닝 존" width="1600" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
         </div>
         <div class="p-6">
           <div class="num text-ring-gold text-xs mb-2">HEAVY BAG</div>
           <h3 class="headline text-xl mb-2">샌드백 · 미트 존</h3>
           <p class="text-gray-400 text-sm">헤비백과 관장님 미트 트레이닝. 실전 펀치의 타격감을 익히는 공간.</p>
-        </div>
-      </div>
-
-      <!-- Weight -->
-      <div class="card p-0 rounded-sm overflow-hidden group" data-reveal>
-        <div class="photo-slot aspect-[4/3] bg-gradient-to-br from-ring-crimson/40 to-black relative">
-          <svg viewBox="0 0 200 150" class="photo-slot-fallback absolute inset-0 w-2/3 m-auto" aria-hidden="true">
-            <rect x="20" y="70" width="40" height="10" fill="#555"/>
-            <rect x="12" y="60" width="10" height="30" fill="#333"/>
-            <rect x="58" y="60" width="10" height="30" fill="#333"/>
-            <rect x="80" y="85" width="50" height="8" fill="#222"/>
-            <rect x="95" y="93" width="3" height="20" fill="#444"/>
-            <rect x="115" y="93" width="3" height="20" fill="#444"/>
-            <rect x="135" y="55" width="60" height="4" fill="#666"/>
-            <circle cx="140" cy="57" r="10" fill="#111" stroke="#444" stroke-width="2"/>
-            <circle cx="190" cy="57" r="10" fill="#111" stroke="#444" stroke-width="2"/>
-          </svg>
-          <img src="images/facility-weight.jpg" alt="중흥복싱클럽 웨이트·체력 존" width="1600" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
-        </div>
-        <div class="p-6">
-          <div class="num text-ring-gold text-xs mb-2">GYM</div>
-          <h3 class="headline text-xl mb-2">웨이트 · 체력 존</h3>
-          <p class="text-gray-400 text-sm">덤벨·바벨·벤치. 복싱과 함께 피지컬을 끌어올리는 보조 공간.</p>
         </div>
       </div>
     </div>
@@ -615,62 +588,199 @@ tailwind.config = {
       </div>
     </div>
 
-    <p class="text-center text-gray-500 text-xs mt-8">※ 수강료 · 운영시간 · 첫 방문 체험은 체육관으로 직접 문의해 주세요.</p>
+    <p class="text-center text-gray-500 text-xs mt-8">※ 수강료·운영시간 안내는 아래 FAQ 및 전화 문의를 참고해 주세요.</p>
   </div>
 </section>
 
-<!-- ============== GALLERY ============== -->
-<section id="gallery" class="py-24 md:py-32 bg-ring-black relative overflow-hidden">
+<!-- ============== FAQ + BOXING BASICS ============== -->
+<section id="faq" class="py-24 md:py-32 bg-ring-black relative overflow-hidden">
+  <div class="absolute top-20 -right-24 num text-[220px] md:text-[380px] text-ring-red/[0.04] select-none pointer-events-none leading-none">06</div>
   <div class="max-w-7xl mx-auto px-6 relative">
-    <div class="mb-14" data-reveal>
-      <div class="chip inline-block mb-4 num">06 · GALLERY</div>
-      <h2 class="headline text-4xl md:text-6xl max-w-3xl">
-        링 안의 <span class="text-ring-red">공기</span>, 사진으로
+    <div class="text-center mb-14 md:mb-16" data-reveal>
+      <div class="chip inline-block mb-4 num">06 · FAQ</div>
+      <h2 class="headline text-4xl md:text-6xl leading-tight">
+        처음 오시는 분들이<br class="md:hidden" />
+        <span class="text-ring-red"> 가장 많이 묻는 것</span>
       </h2>
-      <p class="text-gray-400 mt-4">실제 수업·스파링·훈련의 순간들. 체육관의 분위기를 그대로 담습니다.</p>
+      <p class="text-gray-400 mt-4 max-w-2xl mx-auto">체험·수강 문의 전에 궁금한 것들. 더 자세한 안내는 전화로 관장님께 직접 확인하세요.</p>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
-      <!-- Gallery tile template: img auto-fills if file exists, SVG pattern fallback otherwise -->
-      <div class="photo-slot aspect-square card rounded-sm relative" data-reveal>
-        <div class="photo-slot-fallback absolute inset-0 flex items-center justify-center bg-gradient-to-br from-ring-crimson/30 to-black">
-          <svg viewBox="0 0 60 60" class="w-1/3 opacity-40" aria-hidden="true"><circle cx="30" cy="30" r="22" fill="none" stroke="#e10600" stroke-width="2"/><path d="M18 30 L42 30 M30 18 L30 42" stroke="#f5c518" stroke-width="1.5"/></svg>
-        </div>
-        <img src="images/gallery-01.jpg" alt="수업 장면 1" width="1200" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
-      </div>
-      <div class="photo-slot aspect-square card rounded-sm relative" data-reveal>
-        <div class="photo-slot-fallback absolute inset-0 flex items-center justify-center bg-gradient-to-br from-ring-red/20 to-black">
-          <svg viewBox="0 0 60 60" class="w-1/3 opacity-40" aria-hidden="true"><rect x="20" y="10" width="20" height="40" rx="3" fill="none" stroke="#e10600" stroke-width="2"/><line x1="20" y1="25" x2="40" y2="25" stroke="#f5c518" stroke-width="1"/></svg>
-        </div>
-        <img src="images/gallery-02.jpg" alt="수업 장면 2" width="1200" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
-      </div>
-      <div class="photo-slot aspect-square card rounded-sm relative" data-reveal>
-        <div class="photo-slot-fallback absolute inset-0 flex items-center justify-center bg-gradient-to-br from-ring-crimson/40 to-black">
-          <svg viewBox="0 0 60 60" class="w-1/3 opacity-40" aria-hidden="true"><path d="M15 30 L45 30 M20 20 L40 40 M40 20 L20 40" stroke="#e10600" stroke-width="2" fill="none"/></svg>
-        </div>
-        <img src="images/gallery-03.jpg" alt="수업 장면 3" width="1200" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
-      </div>
-      <div class="photo-slot aspect-square card rounded-sm relative" data-reveal>
-        <div class="photo-slot-fallback absolute inset-0 flex items-center justify-center bg-gradient-to-br from-ring-red/15 to-black">
-          <svg viewBox="0 0 60 60" class="w-1/3 opacity-40" aria-hidden="true"><circle cx="22" cy="28" r="10" fill="none" stroke="#e10600" stroke-width="2"/><circle cx="38" cy="32" r="10" fill="none" stroke="#f5c518" stroke-width="2"/></svg>
-        </div>
-        <img src="images/gallery-04.jpg" alt="수업 장면 4" width="1200" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
-      </div>
-      <div class="photo-slot aspect-square card rounded-sm relative" data-reveal>
-        <div class="photo-slot-fallback absolute inset-0 flex items-center justify-center bg-gradient-to-br from-ring-gold/10 to-black">
-          <svg viewBox="0 0 60 60" class="w-1/3 opacity-40" aria-hidden="true"><path d="M10 30 Q30 10 50 30 Q30 50 10 30 Z" fill="none" stroke="#f5c518" stroke-width="2"/></svg>
-        </div>
-        <img src="images/gallery-05.jpg" alt="수업 장면 5" width="1200" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
-      </div>
-      <div class="photo-slot aspect-square card rounded-sm relative" data-reveal>
-        <div class="photo-slot-fallback absolute inset-0 flex items-center justify-center bg-gradient-to-br from-ring-crimson/30 to-black">
-          <svg viewBox="0 0 60 60" class="w-1/3 opacity-40" aria-hidden="true"><rect x="15" y="22" width="30" height="16" rx="2" fill="none" stroke="#e10600" stroke-width="2"/><line x1="30" y1="22" x2="30" y2="38" stroke="#f5c518" stroke-width="1"/></svg>
-        </div>
-        <img src="images/gallery-06.jpg" alt="수업 장면 6" width="1200" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
-      </div>
-    </div>
+    <div class="grid md:grid-cols-3 gap-6 md:gap-10">
 
-    <p class="text-center text-gray-500 text-xs mt-8">※ 회원 사진은 보호자·본인 동의 하에만 게시됩니다.</p>
+      <!-- FAQ accordion (2/3 width on desktop) -->
+      <div class="md:col-span-2 space-y-3" data-reveal>
+        <details class="faq-item card rounded-sm">
+          <summary class="p-5 md:p-6 flex items-start justify-between gap-4">
+            <div class="flex items-start gap-3">
+              <span class="num text-ring-red shrink-0 text-xl mt-0.5">Q</span>
+              <span class="font-bold text-base md:text-lg leading-snug">복싱이 처음인데 운동 경험이 없어도 괜찮나요?</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 shrink-0 text-gray-400 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <div class="px-5 md:px-6 pb-5 md:pb-6 pt-4 text-gray-300 leading-relaxed border-t border-white/10 text-sm md:text-base">
+            오히려 처음인 편이 좋습니다. 스탠스·잽·스트레이트 같은 기본 동작부터 관장님이 직접 교정해가며 한 단계씩 가르칩니다. 체력이 부족해도 초급 단계에서는 강도를 조절하기 때문에 부담 없이 시작할 수 있습니다.
+          </div>
+        </details>
+
+        <details class="faq-item card rounded-sm">
+          <summary class="p-5 md:p-6 flex items-start justify-between gap-4">
+            <div class="flex items-start gap-3">
+              <span class="num text-ring-red shrink-0 text-xl mt-0.5">Q</span>
+              <span class="font-bold text-base md:text-lg leading-snug">여자도 복싱해도 되나요? 다치거나 멍 드는 게 걱정돼요.</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 shrink-0 text-gray-400 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <div class="px-5 md:px-6 pb-5 md:pb-6 pt-4 text-gray-300 leading-relaxed border-t border-white/10 text-sm md:text-base">
+            많은 여성 회원이 함께하고 있습니다. 일상 훈련은 미트·샌드백·섀도우 복싱 중심이라 부상 위험이 거의 없고, 스파링은 희망자에 한해 안전한 강도로 진행합니다. 전신 운동·체형 관리·스트레스 해소에 복싱만큼 좋은 종목이 드뭅니다.
+          </div>
+        </details>
+
+        <details class="faq-item card rounded-sm">
+          <summary class="p-5 md:p-6 flex items-start justify-between gap-4">
+            <div class="flex items-start gap-3">
+              <span class="num text-ring-red shrink-0 text-xl mt-0.5">Q</span>
+              <span class="font-bold text-base md:text-lg leading-snug">복싱 다이어트는 얼마나 효과 있나요?</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 shrink-0 text-gray-400 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <div class="px-5 md:px-6 pb-5 md:pb-6 pt-4 text-gray-300 leading-relaxed border-t border-white/10 text-sm md:text-base">
+            복싱은 라운드제(3분 운동 · 1분 휴식) 특성상 인터벌 효과가 자연스럽게 들어갑니다. 시간당 칼로리 소모가 크고, 코어·어깨·다리까지 전신이 함께 움직여 체지방 감량과 근지구력 향상에 유리합니다. 가장 중요한 건 꾸준한 출석입니다.
+          </div>
+        </details>
+
+        <details class="faq-item card rounded-sm">
+          <summary class="p-5 md:p-6 flex items-start justify-between gap-4">
+            <div class="flex items-start gap-3">
+              <span class="num text-ring-red shrink-0 text-xl mt-0.5">Q</span>
+              <span class="font-bold text-base md:text-lg leading-snug">스파링은 꼭 해야 하나요? 맞는 게 무서워요.</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 shrink-0 text-gray-400 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <div class="px-5 md:px-6 pb-5 md:pb-6 pt-4 text-gray-300 leading-relaxed border-t border-white/10 text-sm md:text-base">
+            아닙니다. 스파링은 선택이고, 본인이 준비됐을 때만 진행합니다. 스파링 없이 미트·샌드백·섀도우 훈련만으로도 복싱 실력과 체력은 충분히 쌓을 수 있습니다. 진행할 때도 관장이 상대·라운드·강도를 세심하게 조절해 안전을 최우선으로 합니다.
+          </div>
+        </details>
+
+        <details class="faq-item card rounded-sm">
+          <summary class="p-5 md:p-6 flex items-start justify-between gap-4">
+            <div class="flex items-start gap-3">
+              <span class="num text-ring-red shrink-0 text-xl mt-0.5">Q</span>
+              <span class="font-bold text-base md:text-lg leading-snug">몇 살부터 배울 수 있나요? 초등학생도 가능한가요?</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 shrink-0 text-gray-400 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <div class="px-5 md:px-6 pb-5 md:pb-6 pt-4 text-gray-300 leading-relaxed border-t border-white/10 text-sm md:text-base">
+            초등학생부터 가능합니다. 근처 우산·효동초등학교, 문화중학교 학생들이 꾸준히 함께하고 있습니다. 아이의 연령·체력·집중도에 맞춰 강도를 조절하며, 예절·안전 교육이 함께 진행됩니다.
+          </div>
+        </details>
+
+        <details class="faq-item card rounded-sm">
+          <summary class="p-5 md:p-6 flex items-start justify-between gap-4">
+            <div class="flex items-start gap-3">
+              <span class="num text-ring-red shrink-0 text-xl mt-0.5">Q</span>
+              <span class="font-bold text-base md:text-lg leading-snug">수강료와 운영시간은 어떻게 되나요?</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 shrink-0 text-gray-400 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <div class="px-5 md:px-6 pb-5 md:pb-6 pt-4 text-gray-300 leading-relaxed border-t border-white/10 text-sm md:text-base space-y-4">
+            <div>
+              <div class="num text-ring-gold text-xs tracking-widest mb-2">운영시간</div>
+              <div class="text-white">오후 <strong>4:30 ~ 10:00</strong></div>
+              <div class="text-xs text-gray-500 mt-1">※ 운영일·시간은 사정에 따라 변동될 수 있어 전화 확인을 권장합니다.</div>
+            </div>
+            <div>
+              <div class="num text-ring-gold text-xs tracking-widest mb-2">수강료 (일반부 기준)</div>
+              <ul class="space-y-1.5">
+                <li class="flex justify-between items-baseline gap-4"><span>1개월</span><span class="num text-white">130,000<span class="text-xs text-gray-400 ml-1">원</span></span></li>
+                <li class="flex justify-between items-baseline gap-4"><span>3개월</span><span class="num text-white">330,000<span class="text-xs text-gray-400 ml-1">원</span></span></li>
+              </ul>
+              <div class="text-xs text-gray-500 mt-2">※ 학생부는 자율 운동으로 운영되며, 세부 수강료는 연령·반에 따라 다릅니다. 자세한 안내는 <a href="tel:062-521-9848" class="text-ring-red hover:underline">062-521-9848</a>로 문의해 주세요.</div>
+            </div>
+          </div>
+        </details>
+
+        <details class="faq-item card rounded-sm">
+          <summary class="p-5 md:p-6 flex items-start justify-between gap-4">
+            <div class="flex items-start gap-3">
+              <span class="num text-ring-red shrink-0 text-xl mt-0.5">Q</span>
+              <span class="font-bold text-base md:text-lg leading-snug">첫 방문에 뭘 준비해야 하나요?</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 shrink-0 text-gray-400 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <div class="px-5 md:px-6 pb-5 md:pb-6 pt-4 text-gray-300 leading-relaxed border-t border-white/10 text-sm md:text-base">
+            편한 운동복·운동화·수건·물만 챙기시면 됩니다. 글러브·붕대·줄넘기 같은 장비는 체험 때 체육관에서 빌려 사용할 수 있고, 본인에게 맞는 장비는 며칠 운동해본 뒤 구입해도 늦지 않습니다.
+          </div>
+        </details>
+
+        <details class="faq-item card rounded-sm">
+          <summary class="p-5 md:p-6 flex items-start justify-between gap-4">
+            <div class="flex items-start gap-3">
+              <span class="num text-ring-red shrink-0 text-xl mt-0.5">Q</span>
+              <span class="font-bold text-base md:text-lg leading-snug">한 번 수업은 얼마나 오래 진행되나요?</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 shrink-0 text-gray-400 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          </summary>
+          <div class="px-5 md:px-6 pb-5 md:pb-6 pt-4 text-gray-300 leading-relaxed border-t border-white/10 text-sm md:text-base">
+            보통 1시간 남짓입니다. 워밍업 → 줄넘기 → 섀도우 복싱 → 미트·샌드백 → 마무리 순으로, 그날의 컨디션과 목표에 맞춰 관장이 구성을 조정합니다.
+          </div>
+        </details>
+
+        <p class="text-center text-gray-500 text-xs pt-4">다른 궁금한 점은 <a href="tel:062-521-9848" class="text-ring-red hover:underline">062-521-9848</a>로 편하게 문의 주세요.</p>
+      </div>
+
+      <!-- Boxing basics sidebar -->
+      <aside class="space-y-3" data-reveal>
+        <div>
+          <div class="chip inline-block num mb-3">BOXING BASICS</div>
+          <h3 class="headline text-2xl md:text-3xl mb-2">기본 펀치 4종</h3>
+          <p class="text-gray-500 text-xs md:text-sm mb-5">잽 · 스트레이트 · 훅 · 어퍼컷 — 복싱의 문법</p>
+        </div>
+
+        <div class="card p-5 rounded-sm">
+          <div class="flex items-baseline justify-between mb-1">
+            <div class="num text-ring-red text-2xl">JAB</div>
+            <div class="num text-gray-600 text-xs">01</div>
+          </div>
+          <div class="font-bold text-white mb-2">잽 · 견제의 시작</div>
+          <p class="text-xs text-gray-400 leading-relaxed">앞손으로 뻗는 직선 펀치. 거리를 재고 상대의 리듬을 깨는 가장 기본적인 기술. 모든 공방의 출발점.</p>
+        </div>
+
+        <div class="card p-5 rounded-sm">
+          <div class="flex items-baseline justify-between mb-1">
+            <div class="num text-ring-red text-2xl">STRAIGHT</div>
+            <div class="num text-gray-600 text-xs">02</div>
+          </div>
+          <div class="font-bold text-white mb-2">스트레이트 · 결정타</div>
+          <p class="text-xs text-gray-400 leading-relaxed">뒷손으로 밀어넣는 직선 펀치. 체중과 골반 회전을 실어 던지는 복싱의 간판 펀치. 잽 뒤에 이어지는 투 원투의 '투'.</p>
+        </div>
+
+        <div class="card p-5 rounded-sm">
+          <div class="flex items-baseline justify-between mb-1">
+            <div class="num text-ring-red text-2xl">HOOK</div>
+            <div class="num text-gray-600 text-xs">03</div>
+          </div>
+          <div class="font-bold text-white mb-2">훅 · 근거리의 칼</div>
+          <p class="text-xs text-gray-400 leading-relaxed">팔을 갈고리처럼 휘두르는 옆 궤적 펀치. 상대의 가드 옆을 노리는 근거리 공방의 핵심. 빗맞아도 무겁습니다.</p>
+        </div>
+
+        <div class="card p-5 rounded-sm">
+          <div class="flex items-baseline justify-between mb-1">
+            <div class="num text-ring-red text-2xl">UPPERCUT</div>
+            <div class="num text-gray-600 text-xs">04</div>
+          </div>
+          <div class="font-bold text-white mb-2">어퍼컷 · 가드 사이로</div>
+          <p class="text-xs text-gray-400 leading-relaxed">아래에서 위로 올려치는 펀치. 상대의 가드 사이 턱을 겨누는 결정타. 클린치·근접 상황에서 특히 위력적입니다.</p>
+        </div>
+
+        <div class="card p-5 rounded-sm bg-gradient-to-br from-ring-red/10 to-transparent border-ring-red/30">
+          <div class="num text-ring-gold text-xs mb-2">RING ESSENTIALS</div>
+          <div class="font-bold text-white mb-2">3분 + 1분, 라운드의 리듬</div>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            한 라운드는 <strong class="text-ring-gold">3분 운동 + 1분 휴식</strong>. 이 리듬이 인터벌 효과를 만들고, 체력·집중력·호흡 관리를 동시에 훈련시킵니다. 중흥복싱클럽의 모든 수업이 이 리듬 위에서 구성됩니다.
+          </p>
+        </div>
+      </aside>
+    </div>
   </div>
 </section>
 
@@ -713,7 +823,8 @@ tailwind.config = {
             </div>
             <div>
               <div class="text-xs text-gray-500 tracking-widest mb-1">HOURS</div>
-              <div class="text-white">운영시간은 전화로 문의 바랍니다</div>
+              <div class="text-white">오후 <strong>4:30 ~ 10:00</strong></div>
+              <div class="text-xs text-gray-500 mt-1">운영일·시간은 전화로 확인 부탁드립니다</div>
             </div>
           </li>
           <li class="flex gap-4">
