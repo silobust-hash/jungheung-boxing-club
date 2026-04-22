@@ -286,29 +286,54 @@ tailwind.config = {
 
     <div data-reveal class="relative">
       <div class="absolute -inset-4 bg-ring-red/20 blur-3xl"></div>
-      <div class="relative card p-2 rounded-sm">
-        <div class="aspect-[3/4] bg-gradient-to-br from-ring-dark to-black relative overflow-hidden rounded-sm flex items-center justify-center">
-          <svg viewBox="0 0 300 400" class="w-2/3 h-2/3 opacity-80" aria-hidden="true">
-            <defs>
-              <linearGradient id="sil" x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0" stop-color="#e10600"/>
-                <stop offset="1" stop-color="#6b0000"/>
-              </linearGradient>
-            </defs>
-            <circle cx="150" cy="90" r="45" fill="url(#sil)"/>
-            <path d="M80 180 Q80 150 120 145 L180 145 Q220 150 220 180 L235 280 Q240 320 220 340 L80 340 Q60 320 65 280 Z" fill="url(#sil)"/>
-            <path d="M80 200 L40 260 L55 275 L95 220 Z" fill="url(#sil)"/>
-            <path d="M220 200 L260 260 L245 275 L205 220 Z" fill="url(#sil)"/>
-          </svg>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
-          <div class="absolute bottom-6 left-6 right-6">
-            <div class="num text-ring-gold text-xs tracking-widest mb-2">HEAD COACH · 관장</div>
-            <div class="headline text-3xl">홍관장</div>
-            <div class="text-sm text-gray-300 mt-1">중흥복싱클럽 관장</div>
+      <div class="relative card p-8 md:p-10 rounded-sm overflow-hidden">
+        <div class="absolute top-0 right-0 num text-[160px] md:text-[220px] text-ring-red/[0.06] leading-none select-none pointer-events-none">01</div>
+        <div class="relative flex flex-col gap-6">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 bg-ring-red flex items-center justify-center rounded-sm rotate-45 shadow-[0_10px_30px_-10px_rgba(225,6,0,0.8)]">
+              <span class="-rotate-45 headline text-white text-2xl">중</span>
+            </div>
+            <div>
+              <div class="num text-ring-gold text-xs tracking-[0.3em]">HEAD COACH</div>
+              <div class="text-xs text-gray-500 tracking-widest mt-0.5">중흥복싱클럽 관장</div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div>
+            <div class="headline text-5xl md:text-6xl leading-none mb-2">홍<span class="text-ring-red">관장</span></div>
+            <div class="text-sm text-gray-400 tracking-wider">Hong · Head Coach</div>
+          </div>
+
+          <ul class="space-y-2.5 text-sm">
+            <li class="flex items-center gap-3">
+              <span class="w-1 h-1 bg-ring-red rounded-full flex-shrink-0"></span>
+              <span class="text-gray-300">회원 1:1 직접 지도</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1 h-1 bg-ring-red rounded-full flex-shrink-0"></span>
+              <span class="text-gray-300">정통 복싱 전문 커리큘럼</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1 h-1 bg-ring-red rounded-full flex-shrink-0"></span>
+              <span class="text-gray-300">안전한 실전 스파링 지도</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1 h-1 bg-ring-red rounded-full flex-shrink-0"></span>
+              <span class="text-gray-300">초등·중·고·대·직장인 전 연령 대응</span>
+            </li>
+          </ul>
+
+          <div class="pt-4 border-t border-white/10">
+            <div class="num text-ring-gold text-[10px] tracking-[0.3em] mb-2">PHILOSOPHY</div>
+            <p class="text-sm text-gray-400 leading-relaxed">
+              "주먹만 가르치는 게 아니라, 링 위에서 스스로 서는 법을 가르친다."
+            </p>
           </div>
         </div>
       </div>
-      <div class="absolute -top-4 -right-4 bg-ring-gold text-black num px-4 py-2 text-sm tracking-widest rotate-6 shadow-lg">직접 지도</div>
+      <div class="absolute -top-4 -right-4 bg-ring-gold text-black num px-4 py-2 text-sm tracking-widest rotate-6 shadow-lg z-10">직접 지도</div>
     </div>
   </div>
 </section>
