@@ -7,6 +7,20 @@
 <meta name="description" content="광주광역시 북구 서방로 34, 3층 중흥복싱클럽. 홍관장 직접 지도. 정통 복싱과 복싱 다이어트. 초등학생부터 직장인까지 다양한 연령층이 함께합니다. 남녀 샤워실 완비. 062-521-9848" />
 <meta property="og:title" content="중흥복싱클럽 | 광주 북구 정통 복싱" />
 <meta property="og:description" content="관장 직접 지도 · 정통 복싱 · 복싱 다이어트 · 초중고 성인 모두 환영" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="/images/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="중흥복싱클럽 · 주먹은 거짓말을 하지 않는다 · 062-521-9848" />
+<meta property="og:site_name" content="중흥복싱클럽" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="중흥복싱클럽 | 광주 북구 정통 복싱" />
+<meta name="twitter:description" content="관장 직접 지도 · 정통 복싱 · 복싱 다이어트" />
+<meta name="twitter:image" content="/images/og-image.png" />
+<meta name="theme-color" content="#0a0a0a" />
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet" />
@@ -94,6 +108,11 @@ tailwind.config = {
   .bag { transform-origin: top center; animation: bagSway 3.2s ease-in-out infinite; }
   @keyframes bagSway { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
 
+  /* Photo slot: real image on top, SVG fallback behind. img auto-removes on 404 */
+  .photo-slot { overflow: hidden; }
+  .photo-slot-fallback { z-index: 0; }
+  .photo-slot-img { z-index: 1; }
+
   /* Signboard style (blue/gold like real gym) */
   .signboard {
     background: linear-gradient(135deg, #0b3d91 0%, #1e5cd1 50%, #0b3d91 100%);
@@ -115,11 +134,12 @@ tailwind.config = {
         <div class="text-[10px] text-gray-400 num">JUNGHEUNG BOXING CLUB</div>
       </div>
     </a>
-    <ul class="hidden md:flex items-center gap-8 text-sm">
+    <ul class="hidden md:flex items-center gap-7 lg:gap-8 text-sm">
       <li><a href="#about" class="hover:text-ring-red transition">관장 소개</a></li>
       <li><a href="#programs" class="hover:text-ring-red transition">프로그램</a></li>
       <li><a href="#facility" class="hover:text-ring-red transition">시설</a></li>
       <li><a href="#members" class="hover:text-ring-red transition">회원</a></li>
+      <li><a href="#gallery" class="hover:text-ring-red transition">갤러리</a></li>
       <li><a href="#contact" class="hover:text-ring-red transition">오시는 길</a></li>
     </ul>
     <a href="tel:062-521-9848" class="btn-red px-5 py-2.5 text-sm font-bold tracking-wider rounded-sm hidden md:inline-block">📞 062-521-9848</a>
@@ -133,6 +153,7 @@ tailwind.config = {
       <li><a href="#programs" class="block py-3 border-b border-white/5">프로그램</a></li>
       <li><a href="#facility" class="block py-3 border-b border-white/5">시설</a></li>
       <li><a href="#members" class="block py-3 border-b border-white/5">회원</a></li>
+      <li><a href="#gallery" class="block py-3 border-b border-white/5">갤러리</a></li>
       <li><a href="#contact" class="block py-3 border-b border-white/5">오시는 길</a></li>
       <li class="mt-4"><a href="tel:062-521-9848" class="btn-red block px-5 py-3 text-center font-bold rounded-sm">📞 062-521-9848</a></li>
     </ul>
@@ -266,8 +287,8 @@ tailwind.config = {
     <div data-reveal class="relative">
       <div class="absolute -inset-4 bg-ring-red/20 blur-3xl"></div>
       <div class="relative card p-2 rounded-sm">
-        <div class="aspect-[3/4] bg-gradient-to-br from-ring-dark to-black relative overflow-hidden rounded-sm flex items-center justify-center">
-          <svg viewBox="0 0 300 400" class="w-2/3 h-2/3 opacity-80">
+        <div class="photo-slot aspect-[3/4] bg-gradient-to-br from-ring-dark to-black relative overflow-hidden rounded-sm">
+          <svg viewBox="0 0 300 400" class="photo-slot-fallback absolute inset-0 w-2/3 h-2/3 m-auto opacity-80">
             <defs>
               <linearGradient id="sil" x1="0" x2="0" y1="0" y2="1">
                 <stop offset="0" stop-color="#e10600"/>
@@ -279,14 +300,13 @@ tailwind.config = {
             <path d="M80 200 L40 260 L55 275 L95 220 Z" fill="url(#sil)"/>
             <path d="M220 200 L260 260 L245 275 L205 220 Z" fill="url(#sil)"/>
           </svg>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
-          <div class="absolute bottom-6 left-6 right-6">
+          <img src="images/coach-portrait.jpg" alt="중흥복싱클럽 홍관장 프로필" width="1200" height="1600" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none"></div>
+          <div class="absolute bottom-6 left-6 right-6 z-10">
             <div class="num text-ring-gold text-xs tracking-widest mb-2">HEAD COACH · 관장</div>
             <div class="headline text-3xl">홍관장</div>
-            <div class="text-sm text-gray-400 mt-1">Head Coach · 중흥복싱클럽 관장</div>
+            <div class="text-sm text-gray-300 mt-1">중흥복싱클럽 관장</div>
           </div>
-          <!-- Hint to replace -->
-          <div class="absolute top-3 right-3 bg-black/60 text-[10px] text-gray-400 px-2 py-1 rounded">📷 관장님 사진 교체 필요</div>
         </div>
       </div>
       <div class="absolute -top-4 -right-4 bg-ring-gold text-black num px-4 py-2 text-sm tracking-widest rotate-6 shadow-lg">직접 지도</div>
@@ -421,9 +441,8 @@ tailwind.config = {
     <div class="grid md:grid-cols-3 gap-6">
       <!-- Ring -->
       <div class="card p-0 rounded-sm overflow-hidden group" data-reveal>
-        <div class="aspect-[4/3] bg-gradient-to-br from-ring-crimson/40 to-black flex items-center justify-center relative">
-          <svg viewBox="0 0 200 150" class="w-2/3">
-            <!-- mini taegeukgi -->
+        <div class="photo-slot aspect-[4/3] bg-gradient-to-br from-ring-crimson/40 to-black relative">
+          <svg viewBox="0 0 200 150" class="photo-slot-fallback absolute inset-0 w-2/3 m-auto" aria-hidden="true">
             <circle cx="100" cy="25" r="10" fill="#cd2e3a"/>
             <path d="M100 15 A10 10 0 0 1 100 35 A5 5 0 0 1 100 25 A5 5 0 0 0 100 15Z" fill="#0047a0"/>
             <rect x="30" y="50" width="140" height="80" fill="none" stroke="#e10600" stroke-width="3"/>
@@ -433,6 +452,7 @@ tailwind.config = {
             <circle cx="30" cy="50" r="5" fill="#f5c518"/><circle cx="170" cy="50" r="5" fill="#f5c518"/>
             <circle cx="30" cy="130" r="5" fill="#f5c518"/><circle cx="170" cy="130" r="5" fill="#f5c518"/>
           </svg>
+          <img src="images/facility-ring.jpg" alt="중흥복싱클럽 정통 복싱 링" width="1600" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
         </div>
         <div class="p-6">
           <div class="num text-ring-gold text-xs mb-2">RING</div>
@@ -443,8 +463,8 @@ tailwind.config = {
 
       <!-- Bag -->
       <div class="card p-0 rounded-sm overflow-hidden group" data-reveal>
-        <div class="aspect-[4/3] bg-gradient-to-br from-ring-crimson/40 to-black flex items-center justify-center">
-          <svg viewBox="0 0 200 150" class="w-1/2">
+        <div class="photo-slot aspect-[4/3] bg-gradient-to-br from-ring-crimson/40 to-black relative">
+          <svg viewBox="0 0 200 150" class="photo-slot-fallback absolute inset-0 w-1/2 m-auto" aria-hidden="true">
             <defs>
               <linearGradient id="bagGrad" x1="0" x2="1" y1="0" y2="0">
                 <stop offset="0" stop-color="#111"/>
@@ -457,6 +477,7 @@ tailwind.config = {
             <rect x="80" y="55" width="40" height="70" fill="url(#bagGrad)" stroke="#0a0a0a"/>
             <ellipse cx="100" cy="125" rx="20" ry="6" fill="#000" opacity="0.5"/>
           </svg>
+          <img src="images/facility-bag.jpg" alt="중흥복싱클럽 샌드백·미트 트레이닝 존" width="1600" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
         </div>
         <div class="p-6">
           <div class="num text-ring-gold text-xs mb-2">HEAVY BAG</div>
@@ -467,26 +488,24 @@ tailwind.config = {
 
       <!-- Weight -->
       <div class="card p-0 rounded-sm overflow-hidden group" data-reveal>
-        <div class="aspect-[4/3] bg-gradient-to-br from-ring-crimson/40 to-black flex items-center justify-center">
-          <svg viewBox="0 0 200 150" class="w-2/3">
-            <!-- dumbbell -->
+        <div class="photo-slot aspect-[4/3] bg-gradient-to-br from-ring-crimson/40 to-black relative">
+          <svg viewBox="0 0 200 150" class="photo-slot-fallback absolute inset-0 w-2/3 m-auto" aria-hidden="true">
             <rect x="20" y="70" width="40" height="10" fill="#555"/>
             <rect x="12" y="60" width="10" height="30" fill="#333"/>
             <rect x="58" y="60" width="10" height="30" fill="#333"/>
-            <!-- bench -->
             <rect x="80" y="85" width="50" height="8" fill="#222"/>
             <rect x="95" y="93" width="3" height="20" fill="#444"/>
             <rect x="115" y="93" width="3" height="20" fill="#444"/>
-            <!-- barbell -->
             <rect x="135" y="55" width="60" height="4" fill="#666"/>
             <circle cx="140" cy="57" r="10" fill="#111" stroke="#444" stroke-width="2"/>
             <circle cx="190" cy="57" r="10" fill="#111" stroke="#444" stroke-width="2"/>
           </svg>
+          <img src="images/facility-weight.jpg" alt="중흥복싱클럽 웨이트·체력 존" width="1600" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
         </div>
         <div class="p-6">
           <div class="num text-ring-gold text-xs mb-2">GYM</div>
           <h3 class="headline text-xl mb-2">웨이트 · 체력 존</h3>
-          <p class="text-gray-400 text-sm">덤벨·바벨·벤치·로잉머신. 복싱과 함께 피지컬을 끌어올리는 보조 공간.</p>
+          <p class="text-gray-400 text-sm">덤벨·바벨·벤치. 복싱과 함께 피지컬을 끌어올리는 보조 공간.</p>
         </div>
       </div>
     </div>
@@ -600,11 +619,66 @@ tailwind.config = {
   </div>
 </section>
 
+<!-- ============== GALLERY ============== -->
+<section id="gallery" class="py-24 md:py-32 bg-ring-black relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 relative">
+    <div class="mb-14" data-reveal>
+      <div class="chip inline-block mb-4 num">06 · GALLERY</div>
+      <h2 class="headline text-4xl md:text-6xl max-w-3xl">
+        링 안의 <span class="text-ring-red">공기</span>, 사진으로
+      </h2>
+      <p class="text-gray-400 mt-4">실제 수업·스파링·훈련의 순간들. 체육관의 분위기를 그대로 담습니다.</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
+      <!-- Gallery tile template: img auto-fills if file exists, SVG pattern fallback otherwise -->
+      <div class="photo-slot aspect-square card rounded-sm relative" data-reveal>
+        <div class="photo-slot-fallback absolute inset-0 flex items-center justify-center bg-gradient-to-br from-ring-crimson/30 to-black">
+          <svg viewBox="0 0 60 60" class="w-1/3 opacity-40" aria-hidden="true"><circle cx="30" cy="30" r="22" fill="none" stroke="#e10600" stroke-width="2"/><path d="M18 30 L42 30 M30 18 L30 42" stroke="#f5c518" stroke-width="1.5"/></svg>
+        </div>
+        <img src="images/gallery-01.jpg" alt="수업 장면 1" width="1200" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
+      </div>
+      <div class="photo-slot aspect-square card rounded-sm relative" data-reveal>
+        <div class="photo-slot-fallback absolute inset-0 flex items-center justify-center bg-gradient-to-br from-ring-red/20 to-black">
+          <svg viewBox="0 0 60 60" class="w-1/3 opacity-40" aria-hidden="true"><rect x="20" y="10" width="20" height="40" rx="3" fill="none" stroke="#e10600" stroke-width="2"/><line x1="20" y1="25" x2="40" y2="25" stroke="#f5c518" stroke-width="1"/></svg>
+        </div>
+        <img src="images/gallery-02.jpg" alt="수업 장면 2" width="1200" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
+      </div>
+      <div class="photo-slot aspect-square card rounded-sm relative" data-reveal>
+        <div class="photo-slot-fallback absolute inset-0 flex items-center justify-center bg-gradient-to-br from-ring-crimson/40 to-black">
+          <svg viewBox="0 0 60 60" class="w-1/3 opacity-40" aria-hidden="true"><path d="M15 30 L45 30 M20 20 L40 40 M40 20 L20 40" stroke="#e10600" stroke-width="2" fill="none"/></svg>
+        </div>
+        <img src="images/gallery-03.jpg" alt="수업 장면 3" width="1200" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
+      </div>
+      <div class="photo-slot aspect-square card rounded-sm relative" data-reveal>
+        <div class="photo-slot-fallback absolute inset-0 flex items-center justify-center bg-gradient-to-br from-ring-red/15 to-black">
+          <svg viewBox="0 0 60 60" class="w-1/3 opacity-40" aria-hidden="true"><circle cx="22" cy="28" r="10" fill="none" stroke="#e10600" stroke-width="2"/><circle cx="38" cy="32" r="10" fill="none" stroke="#f5c518" stroke-width="2"/></svg>
+        </div>
+        <img src="images/gallery-04.jpg" alt="수업 장면 4" width="1200" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
+      </div>
+      <div class="photo-slot aspect-square card rounded-sm relative" data-reveal>
+        <div class="photo-slot-fallback absolute inset-0 flex items-center justify-center bg-gradient-to-br from-ring-gold/10 to-black">
+          <svg viewBox="0 0 60 60" class="w-1/3 opacity-40" aria-hidden="true"><path d="M10 30 Q30 10 50 30 Q30 50 10 30 Z" fill="none" stroke="#f5c518" stroke-width="2"/></svg>
+        </div>
+        <img src="images/gallery-05.jpg" alt="수업 장면 5" width="1200" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
+      </div>
+      <div class="photo-slot aspect-square card rounded-sm relative" data-reveal>
+        <div class="photo-slot-fallback absolute inset-0 flex items-center justify-center bg-gradient-to-br from-ring-crimson/30 to-black">
+          <svg viewBox="0 0 60 60" class="w-1/3 opacity-40" aria-hidden="true"><rect x="15" y="22" width="30" height="16" rx="2" fill="none" stroke="#e10600" stroke-width="2"/><line x1="30" y1="22" x2="30" y2="38" stroke="#f5c518" stroke-width="1"/></svg>
+        </div>
+        <img src="images/gallery-06.jpg" alt="수업 장면 6" width="1200" height="1200" loading="lazy" decoding="async" class="photo-slot-img absolute inset-0 w-full h-full object-cover" onerror="this.remove()" />
+      </div>
+    </div>
+
+    <p class="text-center text-gray-500 text-xs mt-8">※ 회원 사진은 보호자·본인 동의 하에만 게시됩니다.</p>
+  </div>
+</section>
+
 <!-- ============== CONTACT ============== -->
 <section id="contact" class="py-24 md:py-32 bg-ring-black relative">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-16" data-reveal>
-      <div class="chip inline-block mb-4 num">06 · CONTACT</div>
+      <div class="chip inline-block mb-4 num">07 · CONTACT</div>
       <h2 class="headline text-4xl md:text-6xl">
         <span class="text-ring-red">링</span>에서 만납시다
       </h2>
