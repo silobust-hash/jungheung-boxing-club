@@ -189,15 +189,15 @@ tailwind.config = {
       </div>
 
       <div class="mt-10 md:mt-14 grid grid-cols-3 gap-3 sm:gap-6 max-w-xl">
-        <div class="min-w-0">
+        <div class="min-w-0 text-center">
           <div class="num text-2xl sm:text-3xl md:text-4xl text-ring-red">관장</div>
           <div class="text-[10px] sm:text-xs text-gray-400 mt-1 tracking-wider">직접 지도</div>
         </div>
-        <div class="min-w-0">
+        <div class="min-w-0 text-center">
           <div class="num text-2xl sm:text-3xl md:text-4xl text-ring-gold">전 연령</div>
           <div class="text-[10px] sm:text-xs text-gray-400 mt-1 tracking-wider">초·중·대·직장</div>
         </div>
-        <div class="min-w-0">
+        <div class="min-w-0 text-center">
           <div class="num text-2xl sm:text-3xl md:text-4xl text-white">남녀</div>
           <div class="text-[10px] sm:text-xs text-gray-400 mt-1 tracking-wider">샤워실 완비</div>
         </div>
@@ -464,47 +464,89 @@ tailwind.config = {
 
     <div class="grid md:grid-cols-2 gap-6">
       <!-- Ring -->
-      <div class="card p-0 rounded-sm overflow-hidden group" data-reveal>
-        <div class="aspect-[4/3] bg-gradient-to-br from-ring-crimson/40 to-black flex items-center justify-center relative">
-          <svg viewBox="0 0 200 150" class="w-2/3" aria-hidden="true">
-            <circle cx="100" cy="25" r="10" fill="#cd2e3a"/>
-            <path d="M100 15 A10 10 0 0 1 100 35 A5 5 0 0 1 100 25 A5 5 0 0 0 100 15Z" fill="#0047a0"/>
-            <rect x="30" y="50" width="140" height="80" fill="none" stroke="#e10600" stroke-width="3"/>
-            <line x1="30" y1="65" x2="170" y2="65" stroke="#f5c518" stroke-width="2"/>
-            <line x1="30" y1="85" x2="170" y2="85" stroke="white" stroke-width="2" opacity="0.6"/>
-            <line x1="30" y1="105" x2="170" y2="105" stroke="#e10600" stroke-width="2"/>
-            <circle cx="30" cy="50" r="5" fill="#f5c518"/><circle cx="170" cy="50" r="5" fill="#f5c518"/>
-            <circle cx="30" cy="130" r="5" fill="#f5c518"/><circle cx="170" cy="130" r="5" fill="#f5c518"/>
-          </svg>
-        </div>
-        <div class="p-6">
-          <div class="num text-ring-gold text-xs mb-2">RING</div>
-          <h3 class="headline text-xl mb-2">복싱 트레이닝 링</h3>
-          <p class="text-gray-400 text-sm">태극기를 내건 체육관 링. 기본기부터 스파링 감각까지 이 위에서 만들어집니다.</p>
+      <div class="card p-8 md:p-10 rounded-sm relative overflow-hidden" data-reveal>
+        <div class="absolute top-0 right-0 num text-[160px] md:text-[220px] text-ring-red/[0.06] leading-none select-none pointer-events-none">01</div>
+        <div class="relative flex flex-col gap-5">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-ring-red/10 border border-ring-red/30 flex items-center justify-center rounded-sm flex-shrink-0">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e10600" stroke-width="2">
+                <rect x="3" y="6" width="18" height="12"/>
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <circle cx="3" cy="6" r="1.2" fill="#f5c518" stroke="none"/>
+                <circle cx="21" cy="6" r="1.2" fill="#f5c518" stroke="none"/>
+                <circle cx="3" cy="18" r="1.2" fill="#f5c518" stroke="none"/>
+                <circle cx="21" cy="18" r="1.2" fill="#f5c518" stroke="none"/>
+              </svg>
+            </div>
+            <div>
+              <div class="num text-ring-gold text-xs tracking-[0.3em]">RING</div>
+              <div class="text-xs text-gray-500 tracking-widest mt-0.5">복싱 트레이닝 링</div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div>
+            <div class="headline text-3xl md:text-4xl leading-tight mb-3">태극기 아래,<br />실전 <span class="text-ring-red">스파링 링</span></div>
+            <p class="text-gray-400 text-sm leading-relaxed">태극기를 내건 체육관 링. 기본기부터 스파링 감각까지 이 위에서 만들어집니다.</p>
+          </div>
+
+          <ul class="space-y-2.5 text-sm">
+            <li class="flex items-center gap-3">
+              <span class="w-1 h-1 bg-ring-red rounded-full flex-shrink-0"></span>
+              <span class="text-gray-300">정규 규격 3단 로프 링</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1 h-1 bg-ring-red rounded-full flex-shrink-0"></span>
+              <span class="text-gray-300">관장 직접 지도 스파링</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1 h-1 bg-ring-red rounded-full flex-shrink-0"></span>
+              <span class="text-gray-300">안전한 강도 · 상대 조절</span>
+            </li>
+          </ul>
         </div>
       </div>
 
       <!-- Bag -->
-      <div class="card p-0 rounded-sm overflow-hidden group" data-reveal>
-        <div class="aspect-[4/3] bg-gradient-to-br from-ring-crimson/40 to-black flex items-center justify-center">
-          <svg viewBox="0 0 200 150" class="w-1/2" aria-hidden="true">
-            <defs>
-              <linearGradient id="bagGrad" x1="0" x2="1" y1="0" y2="0">
-                <stop offset="0" stop-color="#111"/>
-                <stop offset="0.5" stop-color="#444"/>
-                <stop offset="1" stop-color="#111"/>
-              </linearGradient>
-            </defs>
-            <rect x="95" y="10" width="10" height="30" fill="#666"/>
-            <ellipse cx="100" cy="55" rx="25" ry="12" fill="#1a1a1a" stroke="#e10600" stroke-width="2"/>
-            <rect x="80" y="55" width="40" height="70" fill="url(#bagGrad)" stroke="#0a0a0a"/>
-            <ellipse cx="100" cy="125" rx="20" ry="6" fill="#000" opacity="0.5"/>
-          </svg>
-        </div>
-        <div class="p-6">
-          <div class="num text-ring-gold text-xs mb-2">HEAVY BAG</div>
-          <h3 class="headline text-xl mb-2">샌드백 · 미트 존</h3>
-          <p class="text-gray-400 text-sm">헤비백과 관장님 미트 트레이닝. 실전 펀치의 타격감을 익히는 공간.</p>
+      <div class="card p-8 md:p-10 rounded-sm relative overflow-hidden" data-reveal>
+        <div class="absolute top-0 right-0 num text-[160px] md:text-[220px] text-ring-red/[0.06] leading-none select-none pointer-events-none">02</div>
+        <div class="relative flex flex-col gap-5">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-ring-red/10 border border-ring-red/30 flex items-center justify-center rounded-sm flex-shrink-0">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e10600" stroke-width="2">
+                <line x1="12" y1="2" x2="12" y2="6"/>
+                <rect x="8" y="6" width="8" height="14" rx="1"/>
+                <line x1="8" y1="10" x2="16" y2="10"/>
+              </svg>
+            </div>
+            <div>
+              <div class="num text-ring-gold text-xs tracking-[0.3em]">HEAVY BAG</div>
+              <div class="text-xs text-gray-500 tracking-widest mt-0.5">샌드백 · 미트 존</div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div>
+            <div class="headline text-3xl md:text-4xl leading-tight mb-3">타격의 감각은<br /><span class="text-ring-red">여기서</span> 만들어진다</div>
+            <p class="text-gray-400 text-sm leading-relaxed">헤비백과 관장님 미트 트레이닝. 실전 펀치의 타격감을 익히는 공간.</p>
+          </div>
+
+          <ul class="space-y-2.5 text-sm">
+            <li class="flex items-center gap-3">
+              <span class="w-1 h-1 bg-ring-red rounded-full flex-shrink-0"></span>
+              <span class="text-gray-300">헤비백 · 스피드백 라인업</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1 h-1 bg-ring-red rounded-full flex-shrink-0"></span>
+              <span class="text-gray-300">관장 미트 1:1 타격 피드백</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-1 h-1 bg-ring-red rounded-full flex-shrink-0"></span>
+              <span class="text-gray-300">콤비네이션 · 체력 서킷</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -670,7 +712,7 @@ tailwind.config = {
             <svg class="faq-icon w-5 h-5 shrink-0 text-gray-400 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
           </summary>
           <div class="px-5 md:px-6 pb-5 md:pb-6 pt-4 text-gray-300 leading-relaxed border-t border-white/10 text-sm md:text-base">
-            복싱은 라운드제(3분 30초 운동 · 1분 휴식) 특성상 인터벌 효과가 자연스럽게 들어갑니다. 시간당 칼로리 소모가 크고, 코어·어깨·다리까지 전신이 함께 움직여 체지방 감량과 근지구력 향상에 유리합니다. 가장 중요한 건 꾸준한 출석입니다.
+            복싱은 라운드제(3분 운동 · 30초 휴식) 특성상 인터벌 효과가 자연스럽게 들어갑니다. 시간당 칼로리 소모가 크고, 코어·어깨·다리까지 전신이 함께 움직여 체지방 감량과 근지구력 향상에 유리합니다. 가장 중요한 건 꾸준한 출석입니다.
           </div>
         </details>
 
@@ -800,9 +842,9 @@ tailwind.config = {
 
         <div class="card p-5 rounded-sm bg-gradient-to-br from-ring-red/10 to-transparent border-ring-red/30">
           <div class="num text-ring-gold text-xs mb-2">RING ESSENTIALS</div>
-          <div class="font-bold text-white mb-2">3분 30초 + 1분, 라운드의 리듬</div>
+          <div class="font-bold text-white mb-2">3분 + 30초, 라운드의 리듬</div>
           <p class="text-xs text-gray-300 leading-relaxed">
-            중흥복싱클럽의 한 라운드는 <strong class="text-ring-gold">3분 30초 운동 + 1분 휴식</strong>. 이 리듬이 인터벌 효과를 만들고, 체력·집중력·호흡 관리를 동시에 훈련시킵니다. 모든 수업이 이 리듬 위에서 구성됩니다.
+            중흥복싱클럽의 한 라운드는 <strong class="text-ring-gold">3분 운동 + 30초 휴식</strong>. 이 리듬이 인터벌 효과를 만들고, 체력·집중력·호흡 관리를 동시에 훈련시킵니다. 모든 수업이 이 리듬 위에서 구성됩니다.
           </p>
         </div>
       </aside>
