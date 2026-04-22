@@ -1,0 +1,46 @@
+# 중흥복싱클럽 — AI Crawler & Search Engine Policy
+# https://광주복싱.com
+
+User-agent: *
+Allow: /
+Sitemap: https://xn--2e0b040aviiyra.com/sitemap.xml
+
+# ── Google ──
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# ── AI Search Engines ──
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# ── Naver ──
+User-agent: Yeti
+Allow: /
+
+# ── Bing ──
+User-agent: Bingbot
+Allow: /
