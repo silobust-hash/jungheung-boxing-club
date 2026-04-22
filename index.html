@@ -322,30 +322,37 @@
       </div>
 
       <!-- Signboard-style visual (mimicking the real gym signage) -->
-      <div class="relative hidden md:block">
-        <div class="absolute -top-10 right-0 w-[420px] h-[420px] rounded-full bg-ring-red/20 blur-3xl"></div>
+      <div class="relative mt-8 sm:mt-12 md:mt-0">
+        <div
+          class="absolute -top-4 md:-top-10 right-0 md:-right-10 w-[200px] md:w-[420px] h-[200px] md:h-[420px] rounded-full bg-ring-red/20 blur-2xl md:blur-3xl">
+        </div>
 
         <!-- Faux signboard -->
-        <div class="relative signboard p-8 rounded-sm shadow-2xl">
-          <div class="flex items-center gap-4 mb-4">
+        <div class="relative signboard p-5 sm:p-6 md:p-8 rounded-sm shadow-2xl">
+          <div class="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
             <div
-              class="w-16 h-16 bg-white rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 shadow-lg border-2 border-white">
+              class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 shadow-lg border-2 border-white">
               <img src="/images/logo.png" alt="중흥복싱클럽 로고"
                 class="w-full h-full object-contain scale-[1.35] origin-center">
             </div>
             <div>
-              <div class="headline text-4xl lg:text-5xl text-white leading-none flex items-end gap-2 flex-wrap">
+              <div
+                class="headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-none flex items-end gap-1.5 md:gap-2 flex-wrap">
                 <span>중흥<span class="text-ring-gold">복싱</span>클럽</span>
                 <span
-                  class="text-lg lg:text-xl text-white/90 font-normal tracking-wide font-num mb-0.5">[광주복싱.com]</span>
+                  class="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 font-normal tracking-wide font-num mb-0 md:mb-0.5">[광주복싱.com]</span>
               </div>
             </div>
           </div>
-          <div class="border-t-2 border-ring-gold/60 my-4"></div>
+          <div class="border-t-2 border-ring-gold/60 my-3 md:my-4"></div>
           <div class="flex items-center justify-between text-white">
-            <div class="bg-white/20 px-3 py-1 rounded-sm text-xs tracking-widest">상담문의</div>
-            <div class="num text-3xl text-white tracking-wider">T.521-9848</div>
-            <div class="bg-ring-gold text-ring-blue px-3 py-1 rounded-sm font-black">3F</div>
+            <div
+              class="bg-white/20 px-2 md:px-3 py-1.5 md:py-1 rounded-sm text-[10px] md:text-xs tracking-widest leading-none">
+              상담문의</div>
+            <div class="num text-xl sm:text-2xl md:text-3xl text-white tracking-wider">T.521-9848</div>
+            <div
+              class="bg-ring-gold text-ring-blue px-2 md:px-3 py-1 rounded-sm text-[10px] sm:text-xs md:text-sm font-black tracking-wider shadow-sm">
+              3F</div>
           </div>
         </div>
 
