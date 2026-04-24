@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://xn--hc0bj51alpe00g.com/sitemap.xml

@@ -5,3 +5,8 @@ node_modules/
 .env
 .env.local
 *.log
+
+# 별도 저장소 / 로컬 작업 산출물
+/jungheung-boxing-blog/
+/logo.png
+/로고+*.png
