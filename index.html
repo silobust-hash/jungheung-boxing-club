@@ -5,9 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="naver-site-verification" content="2af8ab96beae710677b295113771e75d5af9ae31" />
+  <meta name="naver-site-verification" content="5c60db7b55009258a96b4e890a7829e645e87a9c" />
   <title>광주복싱 · 광주북구복싱 · 중흥복싱 | 중흥복싱클럽 062-521-9848</title>
-  <meta name="description"
-    content="광주복싱 · 광주북구복싱 · 중흥복싱. 광주광역시 북구 서방로 34, 3층 중흥복싱클럽. 홍관장 직접 지도. 정통 복싱과 복싱 다이어트. 초등학생부터 직장인까지 함께합니다. 남녀 샤워실 완비. 062-521-9848" />
+  <meta name="description" content="광주복싱 · 광주북구복싱 · 중흥복싱. 광주광역시 북구 서방로 34, 3층 중흥복싱클럽. 홍관장 직접 지도. 정통 복싱과 복싱 다이어트. 초등학생부터 직장인까지 함께합니다. 남녀 샤워실 완비. 062-521-9848" />
   <meta name="keywords" content="광주복싱, 광주북구복싱, 중흥복싱, 중흥복싱클럽, 정통복싱, 복싱 다이어트, 광주 복싱장, 북구 복싱체육관, 홍관장, 서방로 복싱" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <link rel="canonical" href="https://xn--hc0bj51alpe00g.com/" />
@@ -275,6 +275,40 @@
       background: linear-gradient(135deg, #0b3d91 0%, #1e5cd1 50%, #0b3d91 100%);
       border: 3px solid #f5c518;
     }
+
+    .consult-field {
+      width: 100%;
+      background: rgba(10, 10, 10, 0.86);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #fff;
+      border-radius: 2px;
+      padding: 12px 14px;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .consult-field:focus {
+      outline: none;
+      border-color: rgba(225, 6, 0, 0.95);
+      box-shadow: 0 0 0 3px rgba(225, 6, 0, 0.18);
+      background: rgba(10, 10, 10, 1);
+    }
+
+    .consult-field::placeholder {
+      color: rgba(255, 255, 255, 0.38);
+    }
+
+    .consult-field option {
+      background: #0a0a0a;
+      color: #fff;
+    }
+
+    .consult-label {
+      display: block;
+      margin-bottom: 8px;
+      color: #d1d5db;
+      font-size: 13px;
+      font-weight: 700;
+    }
   </style>
 </head>
 
@@ -298,12 +332,17 @@
         <li><a href="#programs" class="hover:text-ring-red transition">프로그램</a></li>
         <li><a href="#facility" class="hover:text-ring-red transition">시설</a></li>
         <li><a href="#members" class="hover:text-ring-red transition">회원</a></li>
+        <li><a href="#consult" class="hover:text-ring-gold transition">상담 신청</a></li>
         <li><a href="#contact" class="hover:text-ring-red transition">오시는 길</a></li>
         <li><a href="https://blog.광주복싱.com" target="_blank" rel="noopener noreferrer" class="hover:text-ring-gold transition">📝 블로그</a></li>
       </ul>
-      <a href="tel:062-521-9848"
-        class="btn-red px-5 py-2.5 text-sm font-bold tracking-wider rounded-sm hidden md:inline-block">📞
-        062-521-9848</a>
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#consult"
+          class="px-4 py-2.5 text-sm font-bold tracking-wider rounded-sm border border-ring-gold/50 text-ring-gold hover:bg-ring-gold hover:text-black transition">상담
+          신청</a>
+        <a href="tel:062-521-9848" class="btn-red px-5 py-2.5 text-sm font-bold tracking-wider rounded-sm">📞
+          062-521-9848</a>
+      </div>
       <button id="menuBtn" class="md:hidden text-white" aria-label="menu">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M3 6h18M3 12h18M3 18h18" />
@@ -316,8 +355,10 @@
         <li><a href="#programs" class="block py-3 border-b border-white/5">프로그램</a></li>
         <li><a href="#facility" class="block py-3 border-b border-white/5">시설</a></li>
         <li><a href="#members" class="block py-3 border-b border-white/5">회원</a></li>
+        <li><a href="#consult" class="block py-3 border-b border-white/5 text-ring-gold">상담 신청</a></li>
         <li><a href="#contact" class="block py-3 border-b border-white/5">오시는 길</a></li>
         <li><a href="https://blog.광주복싱.com" target="_blank" rel="noopener noreferrer" class="block py-3 border-b border-white/5 text-ring-gold">📝 블로그</a></li>
+        <li class="mt-4"><a href="#consult" class="block px-5 py-3 text-center font-bold rounded-sm border border-ring-gold/50 text-ring-gold">온라인 상담 신청</a></li>
         <li class="mt-4"><a href="tel:062-521-9848" class="btn-red block px-5 py-3 text-center font-bold rounded-sm">📞
             062-521-9848</a></li>
       </ul>
@@ -349,12 +390,16 @@
           <strong class="text-white">줄넘기만 시키는 심심한 복싱장이 아닙니다.</strong> 관장님이 직접 붙어서 재미있게 가르칩니다.
         </p>
         <div class="mt-10 flex flex-wrap gap-4">
-          <a href="tel:062-521-9848"
+          <a href="#consult"
             class="btn-red px-8 py-4 font-bold tracking-wider rounded-sm inline-flex items-center gap-2">
-            전화로 상담·체험 문의
+            온라인 상담 신청
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M5 12h14M13 5l7 7-7 7" />
             </svg>
+          </a>
+          <a href="tel:062-521-9848"
+            class="px-8 py-4 border-2 border-ring-red/50 hover:border-ring-red hover:text-ring-red font-bold tracking-wider rounded-sm inline-flex items-center gap-2 transition">
+            전화로 수강 문의
           </a>
           <a href="#programs"
             class="px-8 py-4 border-2 border-white/20 hover:border-ring-gold hover:text-ring-gold font-bold tracking-wider rounded-sm transition">프로그램
@@ -895,9 +940,13 @@
           <h3 class="headline text-3xl md:text-5xl mb-4">
             첫 발을 링 위에 올려보세요
           </h3>
-          <p class="text-gray-300 mb-8 max-w-xl mx-auto">수강 상담·체험은 전화 한 통이면 됩니다. 관장님이 직접 안내해드립니다.</p>
-          <a href="tel:062-521-9848" class="btn-red inline-block px-10 py-4 font-bold tracking-widest rounded-sm">📞
-            062-521-9848 전화 문의</a>
+          <p class="text-gray-300 mb-8 max-w-xl mx-auto">수강 상담은 전화 한 통이면 됩니다. 관장님이 직접 안내해드립니다.</p>
+          <div class="flex flex-wrap justify-center gap-3">
+            <a href="#consult" class="btn-red inline-block px-10 py-4 font-bold tracking-widest rounded-sm">온라인 상담 신청</a>
+            <a href="tel:062-521-9848"
+              class="inline-block px-10 py-4 font-bold tracking-widest rounded-sm border-2 border-white/20 hover:border-ring-gold hover:text-ring-gold transition">📞
+              062-521-9848</a>
+          </div>
         </div>
       </div>
 
@@ -917,7 +966,7 @@
           처음 오시는 분들이<br class="md:hidden" />
           <span class="text-ring-red"> 가장 많이 묻는 것</span>
         </h2>
-        <p class="text-gray-400 mt-4 max-w-2xl mx-auto">체험·수강 문의 전에 궁금한 것들. 더 자세한 안내는 전화로 관장님께 직접 확인하세요.</p>
+        <p class="text-gray-400 mt-4 max-w-2xl mx-auto">수강 문의 전에 궁금한 것들. 더 자세한 안내는 전화로 관장님께 직접 확인하세요.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6 md:gap-10">
@@ -1058,7 +1107,7 @@
             </summary>
             <div
               class="px-5 md:px-6 pb-5 md:pb-6 pt-4 text-gray-300 leading-relaxed border-t border-white/10 text-sm md:text-base">
-              편한 운동복·운동화·수건·물만 챙기시면 됩니다. 글러브·붕대·줄넘기 같은 장비는 체험 때 체육관에서 빌려 사용할 수 있고, 본인에게 맞는 장비는 며칠 운동해본 뒤 구입해도 늦지 않습니다.
+              편한 운동복·운동화·수건·물만 챙기시면 됩니다. 글러브·붕대·줄넘기 같은 장비는 처음부터 모두 구입하지 않아도 되고, 본인에게 맞는 장비는 며칠 운동해본 뒤 구입해도 늦지 않습니다.
             </div>
           </details>
 
@@ -1144,11 +1193,87 @@
     </div>
   </section>
 
+  <!-- ============== CONSULT ============== -->
+  <section id="consult" class="py-24 md:py-32 bg-gradient-to-b from-ring-black via-ring-dark to-ring-black relative overflow-hidden">
+    <div class="absolute top-12 right-0 num text-[220px] md:text-[360px] text-ring-red/[0.04] select-none pointer-events-none leading-none">07</div>
+    <div class="max-w-7xl mx-auto px-6 relative">
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
+        <div data-reveal>
+          <div class="chip inline-block mb-4 num">07 · 상담</div>
+          <h2 class="headline text-4xl md:text-6xl leading-tight">
+            상담 신청하면<br />관장님이 <span class="text-ring-red">직접</span> 연락드립니다
+          </h2>
+          <p class="text-gray-400 mt-6 leading-relaxed">
+            수강료, 학생반, 다이어트반, 스파링 여부까지 궁금한 내용을 남겨 주세요. 확인 후 가능한 시간에 안내드립니다.
+          </p>
+          <div class="mt-8 grid sm:grid-cols-2 gap-3">
+            <div class="border border-ring-red/25 p-5 rounded-sm bg-black/30">
+              <div class="text-ring-gold text-xs tracking-[0.3em] mb-2 font-bold">접수</div>
+              <div class="font-bold">상담 내용 이메일 접수</div>
+              <p class="text-xs text-gray-500 mt-2 leading-relaxed">입력 내용은 운영자 이메일로만 전달됩니다.</p>
+            </div>
+            <div class="border border-ring-red/25 p-5 rounded-sm bg-black/30">
+              <div class="text-ring-gold text-xs tracking-[0.3em] mb-2 font-bold">연락</div>
+              <div class="font-bold">전화 또는 문자 안내</div>
+              <p class="text-xs text-gray-500 mt-2 leading-relaxed">연락처를 남기면 상담 가능한 시간에 안내드립니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <form id="consultForm" class="card p-6 md:p-8 rounded-sm" data-reveal>
+          <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <input type="hidden" name="source" value="homepage" />
+          <div class="grid sm:grid-cols-2 gap-4">
+            <label>
+              <span class="consult-label">이름</span>
+              <input class="consult-field" name="name" type="text" autocomplete="name" placeholder="예: 홍길동" required />
+            </label>
+            <label>
+              <span class="consult-label">연락처</span>
+              <input class="consult-field" name="phone" type="tel" autocomplete="tel" placeholder="예: 010-0000-0000" required />
+            </label>
+            <label>
+              <span class="consult-label">관심 프로그램</span>
+              <select class="consult-field" name="program">
+                <option value="">선택 안 함</option>
+                <option>정통 복싱</option>
+                <option>복싱 다이어트</option>
+                <option>학생반</option>
+                <option>직장인·성인반</option>
+              </select>
+            </label>
+            <label>
+              <span class="consult-label">운동 대상</span>
+              <input class="consult-field" name="visitor" type="text" placeholder="예: 초등학생, 직장인, 본인" />
+            </label>
+            <label class="sm:col-span-2">
+              <span class="consult-label">희망 연락 시간</span>
+              <input class="consult-field" name="preferredTime" type="text" placeholder="예: 평일 오후 6시 이후" />
+            </label>
+            <label class="sm:col-span-2">
+              <span class="consult-label">이메일</span>
+              <input class="consult-field" name="email" type="email" autocomplete="email" placeholder="선택 입력" />
+            </label>
+            <label class="sm:col-span-2">
+              <span class="consult-label">문의 내용</span>
+              <textarea class="consult-field min-h-[130px] resize-y" name="message" placeholder="운동 목적, 궁금한 점을 남겨 주세요."></textarea>
+            </label>
+          </div>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3 sm:items-center">
+            <button id="consultSubmit" type="submit" class="btn-red px-8 py-4 font-bold tracking-widest rounded-sm">상담 신청 보내기</button>
+            <a href="tel:062-521-9848" class="px-8 py-4 border-2 border-white/20 hover:border-ring-gold hover:text-ring-gold font-bold tracking-widest rounded-sm transition text-center">전화 문의</a>
+          </div>
+          <p id="consultStatus" class="mt-4 text-sm text-gray-400" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- ============== CONTACT ============== -->
   <section id="contact" class="py-24 md:py-32 bg-ring-black relative">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16" data-reveal>
-        <div class="chip inline-block mb-4 num">07 · CONTACT</div>
+        <div class="chip inline-block mb-4 num">08 · CONTACT</div>
         <h2 class="headline text-4xl md:text-6xl">
           <span class="text-ring-red">링</span>에서 만납시다
         </h2>
@@ -1280,6 +1405,44 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
     }, { threshold: 0.15 });
     document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+    const consultForm = document.getElementById('consultForm');
+    const consultStatus = document.getElementById('consultStatus');
+    const consultSubmit = document.getElementById('consultSubmit');
+    if (consultForm) {
+      consultForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const formData = new FormData(consultForm);
+        const payload = Object.fromEntries(formData.entries());
+        payload.pageUrl = window.location.href;
+
+        consultStatus.textContent = '상담 신청을 보내는 중입니다.';
+        consultStatus.className = 'mt-4 text-sm text-gray-400';
+        consultSubmit.disabled = true;
+        consultSubmit.textContent = '보내는 중';
+
+        try {
+          const response = await fetch('/api/consult', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          const result = await response.json().catch(() => ({}));
+          if (!response.ok || !result.ok) {
+            throw new Error(result.message || '상담 신청 전송에 실패했습니다.');
+          }
+          consultForm.reset();
+          consultStatus.textContent = '상담 신청이 접수되었습니다. 확인 후 연락드리겠습니다.';
+          consultStatus.className = 'mt-4 text-sm text-ring-gold';
+        } catch (error) {
+          consultStatus.textContent = error.message || '전송 오류가 발생했습니다. 062-521-9848로 전화 문의해 주세요.';
+          consultStatus.className = 'mt-4 text-sm text-ring-red';
+        } finally {
+          consultSubmit.disabled = false;
+          consultSubmit.textContent = '상담 신청 보내기';
+        }
+      });
+    }
   </script>
 
 </body>
