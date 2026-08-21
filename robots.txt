@@ -1,4 +1,15 @@
 User-agent: *
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 Sitemap: https://xn--hc0bj51alpe00g.com/sitemap.xml
+
+# AI search context: https://xn--hc0bj51alpe00g.com/llms.txt

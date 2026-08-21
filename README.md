@@ -20,7 +20,16 @@
 
 - HTML + Tailwind CSS (CDN)
 - Vanilla JavaScript
-- 단일 파일 정적 사이트
+- Vercel Functions 상담 접수 API
+
+## 상담 접수 API
+
+- 화면: 홈페이지 `#consult` 상담 폼과 블로그 고정 상담 버튼
+- 함수: `api/consult.js`
+- 필수 환경변수: `RESEND_API_KEY`, `CONSULT_TO_EMAIL`
+- 선택 환경변수: `CONSULT_FROM_EMAIL`
+
+API 키는 브라우저에 노출하지 않고 Vercel 환경변수에만 둡니다.
 
 ## 로컬 실행
 
