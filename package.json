@@ -1,0 +1,8 @@
+{
+  "name": "jungheung-boxing-club",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "check": "node --check api/consult.js"
+  }
+}

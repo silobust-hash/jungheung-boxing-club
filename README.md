@@ -24,9 +24,10 @@
 
 ## 상담 접수 API
 
-- 화면: 홈페이지 `#consult` 상담 폼과 블로그 고정 상담 버튼
+- 현재 홈페이지: 개인정보를 받지 않는 전화 상담 전용 안내
 - 함수: `api/consult.js`
-- 필수 환경변수: `RESEND_API_KEY`, `CONSULT_TO_EMAIL`
+- 온라인 이메일 릴레이는 기본적으로 비활성화되어 있습니다. 서버리스 메모리만으로는 지속적인 스팸 방어를 보장할 수 없기 때문입니다.
+- 재개 조건: 실제 Cloudflare Turnstile 위젯·사이트 키를 화면에 연결하고, `CONSULT_API_ENABLED=true`, `CONSULT_TURNSTILE_SECRET`, `RESEND_API_KEY`, `CONSULT_TO_EMAIL`를 Vercel에 설정한 뒤 통합 테스트를 통과해야 합니다.
 - 선택 환경변수: `CONSULT_FROM_EMAIL`
 
 API 키는 브라우저에 노출하지 않고 Vercel 환경변수에만 둡니다.
